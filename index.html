@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#2b4429">
+<title>RLCC Prayer</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🙏</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Newsreader:ital,wght@0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--g:#2b4429;--g2:#3f6139;--sage:#eef2ea;--bg:#f3f5f0;--ink:#1b261a;--mut:#667262;--line:#e1e7dc;--amber:#d9a441;--red:#a23b2c}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;font:16px/1.55 Figtree,system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink);padding-bottom:92px}
+h1,h2{font-family:Newsreader,Georgia,serif;font-weight:600;margin:0;letter-spacing:-.01em}
+h2{font-size:24px;margin-bottom:4px}
+button{font:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+.wrap{max-width:720px;margin:0 auto;padding:16px}
+.hero{background:radial-gradient(90% 120% at 100% 0,rgba(217,164,65,.38),transparent 55%),linear-gradient(165deg,var(--g2),var(--g) 60%,#1f3320);color:#fff;padding:env(safe-area-inset-top) 0 52px}
+.hero .wrap{padding-top:18px}
+.top{display:flex;justify-content:flex-end;margin-bottom:18px}
+.out{background:rgba(255,255,255,.15);color:#fff;border:0;border-radius:99px;padding:7px 15px;font-size:13px;font-weight:600}
+.hero h1{font-size:clamp(34px,8vw,46px);line-height:1.05}
+.hero p{margin:12px 0 0;font:italic 400 19px/1.45 Newsreader,Georgia,serif;opacity:.92;max-width:34ch}
+.hero small{display:block;margin-top:6px;font:600 13px Figtree,sans-serif;opacity:.7;font-style:normal}
+main{position:relative;margin-top:-30px}
+.nav{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;gap:4px;padding:8px 10px calc(8px + env(safe-area-inset-bottom));background:rgba(255,255,255,.94);backdrop-filter:blur(14px);border-top:1px solid var(--line)}
+.nav button{flex:1;border:0;background:none;border-radius:14px;padding:7px 2px;font-size:12px;font-weight:600;color:var(--mut);display:flex;flex-direction:column;align-items:center;gap:1px}
+.nav i{font-style:normal;font-size:21px}
+.nav .on{background:var(--sage);color:var(--g)}
+.card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:20px;margin-bottom:14px;box-shadow:0 6px 22px rgba(43,68,41,.07)}
+.hd{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:6px}
+.sub{color:var(--mut);font-size:14px;margin:0 0 6px}
+.ico{border:1px solid var(--line);background:#fff;border-radius:12px;width:40px;height:40px;font-size:17px;color:var(--g)}
+label{display:block;font-size:14px;font-weight:600;margin:18px 0 7px}
+.in,textarea,select{width:100%;border:1.5px solid var(--line);border-radius:14px;padding:13px 14px;font:inherit;background:#fbfcfa;color:var(--ink)}
+textarea{min-height:160px;resize:vertical}
+.cnt{font-size:12px;color:var(--mut);text-align:right;margin-top:4px}
+.btn{width:100%;border:0;border-radius:14px;background:var(--g);color:#fff;padding:14px 18px;font-weight:700;margin-top:18px}
+.btn.sm{width:auto;margin:0;padding:10px 16px;font-size:14px;border-radius:12px}
+.btn.alt{background:#fff;color:var(--g);border:1.5px solid var(--line)}
+.btn.done{background:var(--sage);color:var(--g)}
+.btn.warn{background:#fff;color:var(--red);border:1.5px solid #ecd2cc}
+.btn:disabled{opacity:.6;cursor:default}
+.link{display:block;margin:14px auto 0;background:none;border:0;color:var(--g);font-weight:600}
+.check{display:flex;gap:11px;align-items:flex-start;font-weight:500;padding:14px;background:var(--sage);border-radius:14px;margin-top:18px}
+.check input{width:20px;height:20px;margin-top:2px;accent-color:var(--g)}
+.req+.req{border-top:1px solid var(--line);margin-top:16px;padding-top:16px}
+.rh{display:flex;align-items:center;gap:12px}
+.av{flex:none;width:42px;height:42px;border-radius:50%;background:var(--sage);color:var(--g);display:grid;place-items:center;font:600 19px Newsreader,serif}
+.who{flex:1;min-width:0}.who b{display:block}.who small{color:var(--mut);font-size:13px}
+.chip{display:inline-block;border-radius:99px;background:var(--sage);color:var(--g);font-size:12px;font-weight:700;padding:4px 10px;white-space:nowrap}
+.chip.warn{background:#fbefd3;color:#80560a}.chip.ok{background:#dcefd6}
+.rt{white-space:pre-wrap;margin:12px 0;font-size:16.5px;line-height:1.6;overflow-wrap:anywhere}
+.rf{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.rf small{color:var(--mut)}
+.row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 0;border-top:1px solid var(--line)}
+.row .who small{display:block}
+.acts{display:flex;gap:8px;flex:none}
+.add{display:flex;gap:8px;margin:12px 0}.add .btn{margin:0;width:auto;flex:none}
+.empty{text-align:center;color:var(--mut);padding:34px 12px}.empty b{display:block;font:600 20px Newsreader,serif;color:var(--ink);margin-bottom:4px}
+.note{border-radius:14px;padding:14px;background:#fbefd3;color:#6d4a09;margin-top:12px}
+.note.ok{background:#e4f1df;color:var(--g)}
+.auth{min-height:100dvh;display:grid;place-items:center;padding:20px;background:radial-gradient(80% 60% at 90% 0,rgba(217,164,65,.4),transparent 60%),linear-gradient(165deg,var(--g2),#1f3320)}
+.login{width:100%;max-width:420px;background:#fff;border-radius:26px;padding:30px 24px;box-shadow:0 20px 60px rgba(0,0,0,.25)}
+.login h1{font-size:34px}.login .logo{font-size:38px;margin-bottom:6px}
+.login .msg{background:#fbeae6;color:var(--red);border-radius:12px;padding:12px;margin:14px 0 0;font-size:14px}
+.code{text-align:center;font-size:30px;letter-spacing:.35em;font-weight:700;padding-left:calc(.35em + 14px)}
+.verse{margin:24px 0 0;text-align:center;font:italic 16px Newsreader,serif;color:var(--mut)}
+#toast{position:fixed;left:50%;bottom:100px;transform:translate(-50%,20px);background:#1b261a;color:#fff;padding:12px 18px;border-radius:14px;font-size:14px;max-width:90vw;opacity:0;pointer-events:none;transition:.25s;z-index:50;text-align:center}
+#toast.show{opacity:1;transform:translate(-50%,0)}#toast.bad{background:var(--red)}
+.spin{width:34px;height:34px;border:4px solid var(--line);border-top-color:var(--g);border-radius:50%;margin:30vh auto;animation:r .8s linear infinite}
+@keyframes r{to{transform:rotate(360deg)}}
+@media(min-width:760px){body{padding-bottom:40px}.nav{position:sticky;top:12px;bottom:auto;max-width:560px;margin:-26px auto 0;border:1px solid var(--line);border-radius:99px;box-shadow:0 10px 30px rgba(43,68,41,.14)}.nav button{flex-direction:row;justify-content:center;gap:7px;font-size:14px;padding:10px;border-radius:99px}.nav i{font-size:16px}main{margin-top:14px}#toast{bottom:30px}.card{padding:26px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div id="app"><div class="spin"></div></div>
+<div id="toast" role="status"></div>
+<script>
+// 1) Paste your Apps Script Web App URL (ends in /exec) here:
+const API_URL='https://script.google.com/macros/s/AKfycbzd9a_CRwFH4aeIu429_T7Zpi3N1AuIrFkMHg6uhOuK2_MXGoWT5pLIglA5gnKmaJQ/exec';
+const KEY='rlcc_prayer_token',CATS=['Personal','Family','Work / School','Relationships','Spiritual Life','Ministry','Other'];
+let token=localStorage.getItem(KEY)||'',email='',S={},tab='pray';
+const $=id=>document.getElementById(id);
+const esc=v=>String(v==null?'':v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+async function api(action,...args){
+  const r=await fetch(API_URL,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({action,args})});
+  const j=await r.json(); if(!j.success)throw new Error(j.error); return j.data;
+}
+function toast(m,bad){const t=$('toast');t.textContent=m;t.className='show'+(bad?' bad':'');clearTimeout(toast.t);toast.t=setTimeout(()=>t.className='',3400);}
+async function act(b,fn,ok){if(b)b.disabled=true;try{await fn();if(ok)toast(ok);}catch(x){toast(x.message||'Something went wrong. Please try again.',1);}finally{if(b)b.disabled=false;}}
+function ago(v){const m=Math.floor((Date.now()-new Date(v))/6e4);if(m<1)return'just now';if(m<60)return m+'m ago';const h=Math.floor(m/60);if(h<24)return h+'h ago';const d=Math.floor(h/24);return d<7?d+'d ago':new Date(v).toLocaleDateString(undefined,{month:'short',day:'numeric'});}
+function drop(msg){localStorage.removeItem(KEY);token='';login('email',msg);}
+async function refresh(){const d=await api('refreshData',token);if(!d.ok){drop(d.message);throw new Error(d.message);}S=d;}
+
+function login(step,msg){
+  $('app').innerHTML=`<div class="auth"><div class="login"><div class="logo">🙏</div><h1>RLCC Prayer</h1>
+  <p class="sub">${step==='code'?'We sent a 6-digit code to <b>'+esc(email)+'</b>.':'Sign in with the email on your Planning Center profile.'}</p>
+  ${msg?`<div class="msg">${esc(msg)}</div>`:''}
+  ${step==='code'
+   ?`<label for="code">Verification code</label><input id="code" class="in code" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="······" onkeydown="if(event.key==='Enter')this.nextElementSibling.click()"><button class="btn" onclick="verify(this)">Sign in</button><button class="link" onclick="login('email')">Use a different email</button>`
+   :`<label for="email">Email address</label><input id="email" class="in" type="email" autocomplete="email" placeholder="you@example.com" value="${esc(email)}" onkeydown="if(event.key==='Enter')this.nextElementSibling.click()"><button class="btn" onclick="sendCode(this)">Send my code</button>`}
+  <p class="verse">“Bear ye one another's burdens.”<br>Galatians 6:2</p></div></div>`;
+  const i=$(step==='code'?'code':'email');if(i)i.focus();
+}
+function sendCode(b){email=$('email').value.trim().toLowerCase();if(!/^\S+@\S+\.\S+$/.test(email))return toast('Enter a valid email address.',1);act(b,async()=>{await api('requestLoginCode',email);login('code');});}
+function verify(b){act(b,async()=>{const r=await api('verifyLoginCode',email,$('code').value.trim());token=r.authToken;localStorage.setItem(KEY,token);S=r;tab=S.isPrayerTeam?'pray':'request';draw();});}
+function signOut(){api('logout',token).catch(()=>{});localStorage.removeItem(KEY);token='';S={};email='';login('email');}
+async function start(){
+  if(API_URL.startsWith('PASTE'))return $('app').innerHTML='<div class="wrap"><div class="card"><h2>Almost there</h2><p>Add your Apps Script Web App URL to <code>API_URL</code> in index.html.</p></div></div>';
+  if(!token)return login('email');
+  try{const d=await api('getBootstrapData',token);if(!d.ok)return drop(d.message);S=d;tab=S.isPrayerTeam?'pray':'request';draw();}
+  catch(x){login('email',x.message);}
+}
+
+const go=t=>{tab=t;draw();scrollTo(0,0);};
+function draw(){
+  const f=(S.user.name||'friend').split(' ')[0];
+  const tabs=[['pray','🙏','Pray',S.isPrayerTeam],['request','📝','Request',1],['mine','❤️','Mine',1],['team','👥','Team',!S.isPrayerTeam],['admin','⚙️','Admin',S.isAdmin]].filter(t=>t[3]);
+  if(!tabs.some(t=>t[0]===tab))tab=tabs[0][0];
+  $('app').innerHTML=`<header class="hero"><div class="wrap"><div class="top"><button class="out" onclick="signOut()">Sign out</button></div><h1>Hello, ${esc(f)}.</h1><p>Bear ye one another's burdens, and so fulfil the law of Christ.<small>Galatians 6:2</small></p></div></header>
+  <nav class="nav">${tabs.map(t=>`<button class="${t[0]===tab?'on':''}" onclick="go('${t[0]}')"><i>${t[1]}</i>${t[2]}</button>`).join('')}</nav>
+  <main class="wrap" id="view"></main>`;
+  V[tab]($('view'));
+}
+const reload=b=>act(b,async()=>{await refresh();draw();},'Updated');
+const head=(t,s)=>`<div class="hd"><div><h2>${t}</h2><p class="sub">${s}</p></div><button class="ico" aria-label="Refresh" onclick="reload(this)">↻</button></div>`;
+const empty=(t,s)=>`<div class="empty"><b>${t}</b>${s}</div>`;
+
+const V={
+pray(v){
+  const a=S.prayerRequests||[];
+  v.innerHTML=`<div class="card">${head('Prayer requests','Pray, then tap “I prayed” so others know it is covered.')}${a.length?a.map(r=>`<article class="req"><div class="rh"><div class="av">${esc((r.name||'?').charAt(0))}</div><div class="who"><b>${esc(r.name)}</b><small>${esc(r.category)} · ${ago(r.createdAt)}</small></div>${r.pastoralFollowUp?'<span class="chip warn">Follow-up asked</span>':''}</div><p class="rt">${esc(r.request)}</p><div class="rf"><button class="btn sm ${r.prayedByMe?'done':''}" ${r.prayedByMe?'disabled':''} onclick="pray('${r.id}',this)">${r.prayedByMe?'✓ Prayed':'🙏 I prayed'}</button><small>${r.prayCount?r.prayCount+' prayed so far':'Be the first to pray'}</small></div></article>`).join(''):empty('All caught up','There are no active prayer requests right now.')}</div>`;
+},
+request(v){
+  v.innerHTML=`<div class="card"><h2>Request prayer</h2><p class="sub">Share only what you are comfortable having others pray about.</p>
+  <label for="rt">What can we pray for?</label><textarea id="rt" maxlength="2000" oninput="$('cnt').textContent=this.value.length+' / 2000'" placeholder="Write your request here…"></textarea><div class="cnt" id="cnt">0 / 2000</div>
+  <label for="cat">Category</label><select id="cat">${CATS.map(c=>`<option>${c}</option>`).join('')}</select>
+  <label for="vis">Who can see this?</label><select id="vis"><option value="Prayer Team">Prayer Team only</option><option value="Church-wide">Church-wide</option></select>
+  <label class="check"><input type="checkbox" id="fu"><span>Please ask a pastor or ministry leader to follow up with me.</span></label>
+  <button class="btn" onclick="submitReq(this)">Send prayer request</button></div>`;
+},
+mine(v){
+  const a=S.myRequests||[];
+  v.innerHTML=`<div class="card">${head('My requests','Mark a request when God answers it.')}${a.length?a.map(r=>`<article class="req"><div class="rh"><div class="who"><b>${esc(r.category)}</b><small>${ago(r.createdAt)} · ${esc(r.visibility)}</small></div><span class="chip ${r.status==='Answered'?'ok':''}">${esc(r.status==='Answered'?'Answered ✨':r.status)}</span></div><p class="rt">${esc(r.request)}</p>${r.status!=='Answered'?`<button class="btn sm alt" onclick="answered('${r.id}',this)">✨ God answered</button>`:''}</article>`).join(''):empty('Nothing here yet','Requests you send will appear here.')}</div>`;
+},
+team(v){
+  const s=(S.teamStatus&&S.teamStatus.status)||'Not Applied';
+  const ap=`<button class="btn" onclick="applyTeam(this)">🙏 Apply to join the Prayer Team</button>`;
+  const body=s==='Pending'?'<div class="note">Your application is pending. A Prayer Admin will review it soon.</div>'
+   :s==='Rejected'?`<div class="note">Your last application was not approved. You can apply again if things have changed.</div>${ap}`
+   :`<p>Prayer Team members commit to regularly praying for requests from our community.</p><p class="sub">An admin reviews each application. Once approved, you will see requests shared with the Prayer Team.</p>${ap}`;
+  v.innerHTML=`<div class="card"><h2>Prayer Team</h2>${body}</div>`;
+},
+admin(v){
+  const ap=S.pendingApplications||[],m=S.prayerTeamMembers||[],ad=S.admins||[];
+  const person=(x,btns)=>`<div class="row"><div class="who"><b>${esc(x.name)}</b><small>${esc(x.email)}</small></div><div class="acts">${btns}</div></div>`;
+  v.innerHTML=`<div class="card"><h2>Applications</h2>${ap.length?ap.map(a=>person(a,`<button class="btn sm" onclick="adm('approvePrayerTeamApplication','${a.personId}','',this)">Approve</button><button class="btn sm warn" onclick="adm('rejectPrayerTeamApplication','${a.personId}','Reject this application?',this)">Reject</button>`)).join(''):empty('No pending applications','New applications will appear here.')}</div>
+  <div class="card"><h2>Prayer Team</h2>${m.length?m.map(x=>person(x,`<button class="btn sm warn" onclick="adm('deactivatePrayerTeamMember','${x.personId}','Deactivate this member?',this)">Deactivate</button>`)).join(''):empty('No active members yet','Approved applicants will appear here.')}</div>
+  <div class="card"><h2>Administrators</h2><p class="sub">Admins can approve applications and manage the team.</p><div class="add"><input id="na" class="in" type="email" placeholder="Planning Center email"><button class="btn sm" onclick="addAdm(this)">Add</button></div>${ad.map(x=>person(x,`<button class="btn sm warn" onclick="adm('deactivateAdmin','${x.pcoPersonId}','Remove admin access?',this)">Remove</button>`)).join('')}</div>`;
+}};
+
+function pray(id,b){act(b,async()=>{await api('prayForRequest',token,id);const r=S.prayerRequests.find(x=>x.id===id);if(r&&!r.prayedByMe){r.prayedByMe=true;r.prayCount=(r.prayCount||0)+1;}draw();},'Thank you for praying 🙏');}
+function submitReq(b){const t=$('rt').value.trim();if(t.length<5)return toast('Please share a little more detail.',1);
+  act(b,async()=>{await api('submitPrayerRequest',token,{request:t,category:$('cat').value,visibility:$('vis').value,pastoralFollowUp:$('fu').checked});await refresh();tab='mine';draw();scrollTo(0,0);},'Received. We are praying with you. 🙏');}
+function answered(id,b){if(confirm('Mark this request as answered?'))act(b,async()=>{await api('markAnswered',token,id);await refresh();draw();},'Praise God! 🎉');}
+function applyTeam(b){act(b,async()=>{await api('applyForPrayerTeam',token);await refresh();draw();},'Application sent.');}
+function adm(a,id,q,b){if(q&&!confirm(q))return;act(b,async()=>{await api(a,token,id);await refresh();draw();},'Done.');}
+function addAdm(b){const x=$('na').value.trim();if(!x)return toast('Enter an email address.',1);act(b,async()=>{await api('addAdmin',token,x);await refresh();draw();},'Admin added.');}
+start();
+</script>
+</body>
+</html>
