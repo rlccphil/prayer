@@ -134,7 +134,7 @@ const empty=(t,s)=>`<div class="empty"><b>${t}</b>${s}</div>`;
 const V={
 pray(v){
   const a=S.prayerRequests||[];
-  v.innerHTML=`<div class="card">${head('Prayer requests','Pray, then tap “I prayed” so others know it is covered.')}${a.length?a.map(r=>`<article class="req"><div class="rh"><div class="av">${esc((r.name||'?').charAt(0))}</div><div class="who"><b>${esc(r.name)}</b><small>${esc(r.category)} · ${ago(r.createdAt)}</small></div>${r.pastoralFollowUp?'<span class="chip warn">Follow-up asked</span>':''}</div><p class="rt">${esc(r.request)}</p><div class="rf"><button class="btn sm ${r.prayedByMe?'done':''}" ${r.prayedByMe?'disabled':''} onclick="pray('${r.id}',this)">${r.prayedByMe?'✓ Prayed':'🙏 I prayed'}</button><small>${r.prayCount?r.prayCount+' prayed so far':'Be the first to pray'}</small></div></article>`).join(''):empty('All caught up','There are no active prayer requests right now.')}</div>`;
+  v.innerHTML=`<div class="card">${head('Prayer requests','Pray, then tap “I prayed” so others know it is covered.')}${a.length?a.map(r=>`<article class="req"><div class="rh"><div class="av">${esc((r.name||'?').charAt(0))}</div><div class="who"><b>${esc(r.name)}</b><small>${esc(r.category)} · ${ago(r.createdAt)}</small></div>${r.pastoralFollowUp?'<span class="chip warn">Follow-up asked</span>':''}</div><p class="rt">${esc(r.request)}</p><div class="rf"><button class="btn sm ${r.prayedByMe?'done':''}" ${r.prayedByMe?'disabled':''} onclick="pray('${r.id}',this)">${r.prayedByMe?'✓ Prayed':'🙏 I prayed'}</button><small>${r.prayCount?r.prayCount+' prayed so far':'Be the first to pray'}</small></div></article>`).join(''):empty('All caught up','There are no active prayer requests right now.')}</div>${notifyCard()}`;
 },
 request(v){
   v.innerHTML=`<div class="card"><h2>Request prayer</h2><p class="sub">Share only what you are comfortable having others pray about.</p>
@@ -171,6 +171,9 @@ function answered(id,b){if(confirm('Mark this request as answered?'))act(b,async
 function applyTeam(b){act(b,async()=>{await api('applyForPrayerTeam',token);await refresh();draw();},'Application sent.');}
 function adm(a,id,q,b){if(q&&!confirm(q))return;act(b,async()=>{await api(a,token,id);await refresh();draw();},'Done.');}
 function addAdm(b){const x=$('na').value.trim();if(!x)return toast('Enter an email address.',1);act(b,async()=>{await api('addAdmin',token,x);await refresh();draw();},'Admin added.');}
+function notifyCard(){const p=S.notifyPreference==='Daily Summary'?'Daily Summary':'Instant';
+  return `<div class="card"><h2>Email notifications</h2><p class="sub">Choose how you hear about new prayer requests.</p><label for="np">Send me</label><select id="np" onchange="setNotify(this)"><option value="Instant" ${p==='Instant'?'selected':''}>An email right away for each request</option><option value="Daily Summary" ${p==='Daily Summary'?'selected':''}>One summary email each morning</option></select></div>`;}
+function setNotify(sel){const v=sel.value;act(sel,async()=>{try{await api('setNotifyPreference',token,v);S.notifyPreference=v;}catch(e){sel.value=S.notifyPreference||'Instant';throw e;}},'Saved ✅');}
 start();
 </script>
 </body>
